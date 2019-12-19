@@ -48,5 +48,13 @@ namespace MongoDB.Database
                 return _database.GetCollection<Administration>("Administrations");
             }
         }
+        
+         public IMongoCollection<Domaine> Domaines
+        {
+            get
+            {
+                return _database.GetCollection<Domaine>("Domaine");
+            }
+        }
     }
 }

@@ -9,5 +9,6 @@ namespace MongoDB.Database
         IMongoCollection<Ecole> Ecoles { get; }
         IMongoCollection<Universite> Universites { get; }
         IMongoCollection<Administration> Administrations { get; }
+        IMongoCollection<Domaine> Domaines { get; }
     }
 }

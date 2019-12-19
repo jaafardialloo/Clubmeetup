@@ -9,5 +9,6 @@ namespace MongoDB.Repository
         IEcoleRepository<Ecole> Ecoles { get; }
         IUniversiteRepository<Universite> Universites { get; }
         IAdministrationRepository<Administration> Administrations { get; }
+        IDomaineRepository<Domaine> Domaines {get; }
     }
 }

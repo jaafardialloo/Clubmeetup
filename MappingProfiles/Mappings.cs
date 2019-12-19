@@ -16,7 +16,8 @@ namespace MongoDB.MappingProfiles
             CreateMap<Club, ClubSignin>().ReverseMap(); 
             CreateMap<Ecole, EcoleAjout>().ReverseMap(); 
             CreateMap<Universite, UniversiteAjout>().ReverseMap(); 
-            CreateMap<Universite, UniversiteModif>().ReverseMap(); 
+            CreateMap<Universite, UniversiteModif>().ReverseMap();
+             
         }
     }
 }

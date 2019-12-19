@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-
 using MongoDB.Database;
 using MongoDB.Database.Models;
 using MongoDB.Manager;
@@ -18,6 +17,7 @@ namespace MongoDB.Extensions
             services.AddScoped<IUniversiteRepository<Universite>, UniversiteRepository>();
             services.AddScoped<IAdministrationRepository<Administration>, AdministrationRepository>();
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+            services.AddScoped<IDomaineRepository<Domaine>, DomaineRepository>();
 
             return services;
         }
