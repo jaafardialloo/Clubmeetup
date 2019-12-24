@@ -1,28 +1,26 @@
-﻿using MongoDB.Database;
+using MongoDB.Database;
 using MongoDB.Database.Models;
 using MongoDB.Driver;
+using MongoDB.Dtos.SponsorDto;
 using System;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MongoDB.Manager
 {
-    public class AccountManager : IAccountManager<Club>
+    public class SponsorManager : IAccountManager<Sponsor>
     {
         private readonly IMongoContext _context;
 
-        public AccountManager(IMongoContext context)
+        public SponsorManager(IMongoContext context)
         {
             _context = context;
         }
 
-        public async Task<Token> SignInAsync(Club model)
+        public async Task<Token> SignInAsync(Sponsor model)
         {
             // Just for demostration purposes
-            Club user = await _context
-                .Clubs
-                .Find(x => x.Email == model.Email && x.Password == model.Password)
-                .FirstOrDefaultAsync();
+            Sponsor user = await _context.Sponsors.Find(x => x.login== model.login && x.password == model.password).FirstOrDefaultAsync();
 
             if (user is null)
                 return null;
@@ -31,17 +29,17 @@ namespace MongoDB.Manager
             return new Token(secureHash, DateTime.Now.AddMinutes(10));
         }
 
-        public async Task<Token> SignUpAsync(Club model)
+        public async Task<Token> SignUpAsync(Sponsor model)
         {
-            Club user = await _context
-                .Clubs
-                .Find(x => x.Email == model.Email)
+            Sponsor user = await _context
+                .Sponsors
+                .Find(x => x.login == model.login)
                 .FirstOrDefaultAsync();
 
             if (user != null)
                 throw new InvalidOperationException("User already exists");
 
-            await _context.Clubs.InsertOneAsync(model);
+            await _context.Sponsors.InsertOneAsync(model);
             byte[] secureHash = Encoding.UTF8.GetBytes("SuperSecureHash");
             return new Token(secureHash, DateTime.Now.AddMinutes(10));
         }

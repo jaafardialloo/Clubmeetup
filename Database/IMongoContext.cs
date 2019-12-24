@@ -10,5 +10,8 @@ namespace MongoDB.Database
         IMongoCollection<Universite> Universites { get; }
         IMongoCollection<Administration> Administrations { get; }
         IMongoCollection<Domaine> Domaines { get; }
+        IMongoCollection<Sponsor> Sponsors { get; }
+        
+        
     }
 }

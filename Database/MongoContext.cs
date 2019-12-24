@@ -48,12 +48,20 @@ namespace MongoDB.Database
                 return _database.GetCollection<Administration>("Administrations");
             }
         }
-        
+        //Domaine Collection by Dj
          public IMongoCollection<Domaine> Domaines
         {
             get
             {
                 return _database.GetCollection<Domaine>("Domaine");
+            }
+        }
+        //Sponsor collection by Dj
+         public IMongoCollection<Sponsor> Sponsors
+        {
+            get
+            {
+                return _database.GetCollection<Sponsor>("Sponsor");
             }
         }
     }
